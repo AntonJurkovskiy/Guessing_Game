@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.azimut4946777.guessinggame.databinding.FragmentGameBinding
 import com.azimut4946777.guessinggame.databinding.FragmentResultBinding
 
@@ -19,7 +20,11 @@ class ResultFragment : Fragment() {
     ): View? {
        _binding = FragmentResultBinding.inflate(inflater, container, false)
         val view = binding.root
-
+        binding.wonLost.text = ResultFragmentArgs.fromBundle(requireArguments()).result
+        binding.newGameButton.setOnClickListener {
+            view.findNavController()
+                .navigate(R.id.action_resultFragment_to_gameFragment)
+        }
 
         return view
     }

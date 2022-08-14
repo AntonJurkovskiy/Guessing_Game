@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeGameFragment">16sp</dimen>
+    <dimen name="textSizeResultFragment">28sp</dimen>
+    <dimen name="corner_button">30dp</dimen>
+</resources>
