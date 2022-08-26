@@ -23,17 +23,13 @@ class GameFragment : Fragment() {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val view = binding.root
 viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
-       viewModel.incorrectGuesses.observe(viewLifecycleOwner, Observer{newValue->
-           binding.incorrectGuesses.text = "Incorrect Guesses: $newValue"
-       })
+        binding.gameViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.livesLeft.observe(viewLifecycleOwner, Observer { newValue->
-            binding.lives.text = "You Have $newValue Lives Left"
-        })
 
-        viewModel.secretWordDisplay.observe(viewLifecycleOwner, Observer { newValue->
-            binding.word.text = newValue
-        })
+
+
+
         viewModel.gameOver.observe(viewLifecycleOwner, Observer { newValue->
             if(newValue) {
                 val action = GameFragmentDirections
